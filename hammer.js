@@ -1,13 +1,13 @@
 class Hammer{
-    constructor(x,y,width,height,angle){
+    constructor(x,y){
         var options = {
-            'restitution':0.5,
+            'density':2,
             'friction':1.0,
-            'density':0
+            'restitution':0.5,
         }
-        this.body = Bodies.rectangle(x, y, width, height, options);
-        this.width = width;
-        this.height = height;
+        this.body = Bodies.rectangle(x, y, 50, 50, options);
+        this.width = 150;
+        this.height = 40;
         World.add(world, this.body);
     }
     display(){
@@ -18,8 +18,10 @@ class Hammer{
         translate(this.body.position.x, this.body.position.y);
         rotate(angle);
         rectMode(CENTER);
-        fill("yellow");
+        strokeWeight(3);
+        stroke('white')
+        fill("orange");
         rect(0, 0, this.width, this.height);
         pop();
     }
-}
+};
